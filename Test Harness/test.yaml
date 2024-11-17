@@ -1,0 +1,163 @@
+
+#    *       )                  (      *     
+#  (  `   ( /(  (      *   )    )\ ) (  `    
+#  )\))(  )\()) )\   ` )  /((  (()/( )\))(   
+# ((_)()\((_)((((_)(  ( )(_))\  /(_)|(_)()\  
+# (_()((_) ((_)\ _ )\(_(_()|(_)(_)) (_()((_) 
+# |  \/  |/ _ (_)_\(_)_   _| __| _ \|  \/  | 
+# | |\/| | (_) / _ \   | | | _||   /| |\/| | 
+# |_|  |_|\___/_/ \_\  |_| |___|_|_\|_|  |_| 
+# 
+
+# This is an example YAML file for a preset test sequence
+# Add the number of tests you want to run in the num_tests field
+# Add each new test under the test_sequence field
+# Example Test Sequence:
+
+# - test_name: [Test_Name]
+#     number_of_generators: [Number of Generators] --> 0 for baseline run
+#     type_of_generators:
+#       - [Generator Type] --> ([bw, cache, io], must match number of generators, can mix and match interference per-core)
+#     baseline_program: [Stress-ng baseline Command]
+#     loop_numbers: [Number of Loops for base Command]
+
+sequence_vals:
+  num_tests: 18
+test_sequence:
+  - test_name: mtxadd-128x128-base
+    number_of_generators: 0
+    type_of_generators:
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 128 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: mtxadd-128x128-cache-core123
+    number_of_generators: 3
+    type_of_generators:
+      - cache
+      - cache
+      - cache
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 128 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: mtxadd-128x128-cache-core12
+    number_of_generators: 2
+    type_of_generators:
+      - cache
+      - cache
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 128 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: mtxadd-128x128-cache-core1
+    number_of_generators: 1
+    type_of_generators:
+      - cache
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 128 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: mtxadd-256x256-base
+    number_of_generators: 0
+    type_of_generators:
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 256 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: mtxadd-256x256-cache-core123
+    number_of_generators: 3
+    type_of_generators:
+      - cache
+      - cache
+      - cache
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 256 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: mtxadd-256x256-cache-core12
+    number_of_generators: 2
+    type_of_generators:
+      - cache
+      - cache
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 256 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: mtxadd-256x256-cache-core1
+    number_of_generators: 1
+    type_of_generators:
+      - cache
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 256 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: mtxadd-128x128-bw-core123
+    number_of_generators: 3
+    type_of_generators:
+      - bw
+      - bw
+      - bw
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 128 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: mtxadd-128x128-bw-core12
+    number_of_generators: 2
+    type_of_generators:
+      - bw
+      - bw
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 128 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: mtxadd-128x128-bw-core1
+    number_of_generators: 1
+    type_of_generators:
+      - bw
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 128 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: mtxadd-256x256-bw-core123
+    number_of_generators: 3
+    type_of_generators:
+      - bw
+      - bw
+      - bw
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 256 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: mtxadd-256x256-bw-core12
+    number_of_generators: 2
+    type_of_generators:
+      - bw
+      - bw
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 256 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: mtxadd-256x256-bw-core1
+    number_of_generators: 1
+    type_of_generators:
+      - bw
+    baseline_program: stress-ng --matrix 1 --matrix-method add --matrix-size 256 --matrix-ops 250000 --aggressive
+    loop_numbers: 50
+
+  - test_name: udp-base
+    number_of_generators: 0
+    type_of_generators:
+    baseline_program: stress-ng --udp 1 --udp-ops 1000000 --udp-flood 1 --udp-flood-ops 1000000 --aggressive
+    loop_numbers: 50
+
+  - test_name: udp-io-core123
+    number_of_generators: 3
+    type_of_generators:
+      - io
+      - io
+      - io
+    baseline_program: stress-ng --udp 1 --udp-ops 1000000 --udp-flood 1 --udp-flood-ops 1000000 --aggressive
+    loop_numbers: 50
+
+  - test_name: udp-io-core12
+    number_of_generators: 2
+    type_of_generators:
+      - io
+      - io
+    baseline_program: stress-ng --udp 1 --udp-ops 1000000 --udp-flood 1 --udp-flood-ops 1000000 --aggressive
+    loop_numbers: 50
+
+  - test_name: udp-io-core1
+    number_of_generators: 1
+    type_of_generators:
+      - io
+    baseline_program: stress-ng --udp 1 --udp-ops 1000000 --udp-flood 1 --udp-flood-ops 1000000 --aggressive
+    loop_numbers: 50
