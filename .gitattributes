@@ -1,1 +1,5 @@
 *.7z filter=lfs diff=lfs merge=lfs -text
+*.tar.gz filter=lfs diff=lfs merge=lfs -text
+
+"Xen Domains/initrd.img-5.15.0-119-generic" filter=lfs diff=lfs merge=lfs -text
+"Xen Domains/vmlinux-5.15.0-119-generic"s filter=lfs diff=lfs merge=lfs -text

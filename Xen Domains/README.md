@@ -27,9 +27,11 @@ Not much preparation is necessary to create this DomU. On your local device:
 ```
 core[x].cfg
 	...
-	disk=['/run/media/root-mmcblk0p2/ubuntu/core[x].img,raw,xvda[x],rw']
+	name="core[x]"
 	cpus=[x]
-	Replace [x] with the number of the core you are configuring
+	disk=['/run/media/root-mmcblk0p2/ubuntu/core[x].img,raw,xvda[x],rw']
+	root="/dev/xvda[x] rw"
+	# Replace [x] with the number of the core you are configuring
 	...
 ```
 Once this configuration has been completed, the user can move on to setting up the test framework with their desired contention generation types and baseline programs.
