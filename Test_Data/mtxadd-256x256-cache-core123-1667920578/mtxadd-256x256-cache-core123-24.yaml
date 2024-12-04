@@ -1,0 +1,40 @@
+---
+system-info:
+      stress-ng-version: 0.18.05
+      run-by: root
+      date-yyyy-mm-dd: 2022:11:08
+      time-hh-mm-ss: 15:38:34
+      epoch-secs: 1667921914
+      hostname: xilinx-zcu106-20231
+      sysname: Linux
+      nodename: xilinx-zcu106-20231
+      release: 6.1.5-xilinx-v2023.1
+      version: '#1 SMP Fri Apr 21 07:47:58 UTC 2023'
+      machine: aarch64
+      compiler: 'gcc 12.2.0'
+      libc: 'glibc 2.36'
+      uptime: 5909
+      totalram: 1557139456
+      freeram: 558514176
+      sharedram: 12906496
+      bufferram: 4251648
+      totalswap: 0
+      freeswap: 0
+      pagesize: 4096
+      cpus: 1
+      cpus-online: 1
+      ticks-per-second: 100
+
+metrics:
+    - stressor: matrix
+      bogo-ops: 250000
+      bogo-ops-per-second-usr-sys-time: 4798.850794
+      bogo-ops-per-second-real-time: 4651.787317
+      wall-clock-time: 53.742784
+      user-time: 51.870335
+      system-time: 0.225471
+      cpu-usage-per-instance: 96.935444
+      max-rss: 2908
+      add-matrix-ops-per-sec: 4660.799901
+
+...
